@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DependencyInjectionDemo.Services\DependencyInjectionDemo.Services.csproj" />
+    <ProjectReference Include="..\DependencyInjectionDemo.Shared\DependencyInjectionDemo.Shared.csproj" />
   </ItemGroup>
 
 </Project>

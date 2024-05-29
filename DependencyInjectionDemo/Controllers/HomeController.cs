@@ -8,22 +8,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using DependencyInjectionDemo.Services;
 using DependencyInjectionDemo.Web.Models;
+using DependencyInjectionDemo.Shared;
 
 namespace DependencyInjectionDemo.Web.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IBlogService _blogService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IBlogService blogService) // inject service to the constructor
         {
             _logger = logger;
+            _blogService = blogService;
         }
 
         public IActionResult Index()
         {
-            var blogService = new BlogService();
-            var posts = blogService.GetAllPosts();
+           // var blogService = new BlogService();
+            var posts = _blogService.GetAllPosts();
             return View(posts);
         }
 
@@ -40,8 +43,8 @@ namespace DependencyInjectionDemo.Web.Controllers
 
         public IActionResult Details(int id)
         {
-            var blogService = new BlogService();
-            var post = blogService.GetPost(id);
+            //var blogService = new BlogService();
+            var post = _blogService.GetPost(id);
 
             return View(post);
         }

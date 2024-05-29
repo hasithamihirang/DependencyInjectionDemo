@@ -1,3 +1,5 @@
+using DependencyInjectionDemo.Services;
+using DependencyInjectionDemo.Shared;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,6 +25,8 @@ namespace DependencyInjectionDemo.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // services.AddScoped<IBlogService, BlogService>();  //here we inject our implementation to interface. IBlogService is interface and BlogService is implementation 
+            services.AddHttpClient<IBlogService,BlogHttpService>();
             services.AddControllersWithViews();
         }
 
