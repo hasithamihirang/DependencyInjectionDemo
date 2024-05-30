@@ -17,7 +17,7 @@ namespace DependencyInjectionDemo.Web.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IBlogService _blogService;
 
-        public HomeController(ILogger<HomeController> logger, IBlogService blogService) // inject service to the constructor
+        public HomeController(ILogger<HomeController> logger, IBlogService blogService) // inject interface to the constructor
         {
             _logger = logger;
             _blogService = blogService;

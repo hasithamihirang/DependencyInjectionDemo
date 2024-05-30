@@ -24,9 +24,12 @@ namespace DependencyInjectionDemo.Web
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {   // here we can change, what implementation should be injected
             // services.AddScoped<IBlogService, BlogService>();  //here we inject our implementation to interface. IBlogService is interface and BlogService is implementation 
-            services.AddHttpClient<IBlogService,BlogHttpService>();
+            services.AddHttpClient<IBlogService,BlogHttpService>(client =>
+            {
+                client.BaseAddress = new Uri("https://jsonplaceholder.typicode.com/");
+            });
             services.AddControllersWithViews();
         }
 

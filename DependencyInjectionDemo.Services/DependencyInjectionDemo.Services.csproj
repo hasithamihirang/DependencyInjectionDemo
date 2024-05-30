@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DependencyInjectionDemo.Data\DependencyInjectionDemo.Data.csproj" />
     <ProjectReference Include="..\DependencyInjectionDemo.Models\DependencyInjectionDemo.Models.csproj" />
     <ProjectReference Include="..\DependencyInjectionDemo.Shared\DependencyInjectionDemo.Shared.csproj" />
